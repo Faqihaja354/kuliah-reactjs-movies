@@ -6,6 +6,7 @@ export default function Home() {
       <h1 style={{fontSize :"24px", color: "blue"}}>Home Movie List</h1>
       <h2 style={{fontSize :"20px", color: "green"}}>Faqih Matuz Sahro</h2>
       <h3 style={{fontSize :"18px", color: "red"}}>Kelas Pemrograman Web 2024</h3>
+      <h4>kocak lu....</h4>
     </div>
   )
 }
