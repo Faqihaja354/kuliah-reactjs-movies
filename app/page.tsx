@@ -1,38 +1,51 @@
 "use client";
-import Image from "next/image";
-
-import {Stack,Button,Card,CardText} from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Button, Card, CardText, Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './globals.css';
+import MovieCard from './MovieCard';
+import MovieForms from './MovieForms';
+
 
 export default function Home() {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/images')
+      .then(response => response.json())
+      .then(data => setImages(data))
+      .catch(error => console.error('Error fetching images:', error));
+  }, []);
+
   return (
-    <div>
-      <h1 style={{fontSize :"24px", color: "blue"}}>Home Movie List</h1>
-      <h2 style={{fontSize :"20px", color: "green"}}>Faqih Matuz Sahro</h2>
-      <h3 style={{fontSize :"18px", color: "red"}}>Kelas Pemrograman Web 2024</h3>
-      
-    <Stack direction="horizontal" gap={2}>
-      <Button as="a" variant="primary">
-      Button as link
-      </Button>
-    <Button as="a" variant="success">
-      Button as link
-    </Button>
-    </Stack> 
-    <br/>
-    <Card className="bg-transparent text-white text-center movieimage">
-      {/* <Image src="https://cdna.artstation.com/p/assets/images/images/051/931/548/large/aimistics-xmen-tw-min.jpg?1658514664" 
-      alt = "card image" height={300} width={480}></Image> */}
+    <div className='container'>
+      <Card className="text-center">
+        <Card.Header className ='large-header'>HOME MOVIES LIST</Card.Header>
+        <Card.Body>
+          <Card.Title className='xxi-style'>FAQIH MATUZ SAHRO</Card.Title>
+          <Card.Title className='xxi-style'>22570023</Card.Title>
+        </Card.Body>
+      </Card>
+      <br/>
+      <div className='movie-form'>
+        <MovieForms/>
 
-      <img className="card-img-top"
-      src="https://cdna.artstation.com/p/assets/images/images/051/931/548/large/aimistics-xmen-tw-min.jpg?1658514664"
-      alt="card image cap"></img>
-
-      <div className="bg-dark p-1 m-1">
-      <CardText> FILM X-man Apocalypce</CardText>
-      <CardText>Rating 7.9</CardText>
       </div>
-    </Card>
+      <br/>
+      <div className='movie-card'>
+        <MovieCard/>
+
+      </div>
+      <br />
+      <div className='button-container'>
+        <Button as="a" variant="primary">
+            Button as link
+          </Button>
+          <Button as="a" variant="success">
+            Button as link
+          </Button>
+      </div>
+
     </div>
-  )
+  );
 }
