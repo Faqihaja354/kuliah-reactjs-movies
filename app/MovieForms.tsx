@@ -85,18 +85,7 @@ const MovieForms = () => {
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label column sm={2}>Durasi (min)</Form.Label>
-          <Col sm={10}>
-            <Form.Control
-              type="text"
-              placeholder="Durasi"
-              value={durasi}
-              onChange={(e) => setDurasi(e.target.value)}
-              className="bg-light text-dark"
-            />
-          </Col>
-        </Form.Group>
+        
 
         <Form.Group as={Row} className="mb-3">
           <Form.Label column sm={2}>Gambar Cover</Form.Label>

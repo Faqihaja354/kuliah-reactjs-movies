@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import MovieCard from './MovieCard';
 import MovieForms from './MovieForms';
-
+import MovieSlide from './MovieSlide';
 
 export default function Home() {
   const [images, setImages] = useState([]);
@@ -26,17 +26,6 @@ export default function Home() {
           <Card.Title className='xxi-style'>22570023</Card.Title>
         </Card.Body>
       </Card>
-      <br/>
-      <div className='movie-form'>
-        <MovieForms/>
-
-      </div>
-      <br/>
-      <div className='movie-card'>
-        <MovieCard/>
-
-      </div>
-      <br />
       <div className='button-container'>
         <Button as="a" variant="primary">
             Button as link
@@ -46,6 +35,17 @@ export default function Home() {
           </Button>
       </div>
 
+
+
+      <div className='movie-form'>
+        <MovieForms/>
+
+      </div>
+
+      <div className='movie-card'>
+        <MovieCard/>
+        <MovieSlide/>
+      </div>
     </div>
   );
 }
